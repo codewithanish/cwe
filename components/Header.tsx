@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         setAvatar(data.avatar_url);
         console.log("success", data);
       }
-    } catch (error) {
+    } catch (error: any) {
       alert(error.message + "from header");
     }
   }
