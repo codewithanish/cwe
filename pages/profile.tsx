@@ -38,7 +38,7 @@ const profile: NextPage<Props> = ({ user }: Props) => {
           setUsername(data.username);
           console.log("success", data);
         }
-      } catch (error) {
+      } catch (error: any) {
         alert(error.message + "from getProfile");
       }
     }
@@ -57,7 +57,7 @@ const profile: NextPage<Props> = ({ user }: Props) => {
       if (error) {
         throw error;
       }
-    } catch (error) {
+    } catch (error: any) {
       alert(error.message);
     }
   }
@@ -142,7 +142,7 @@ const profile: NextPage<Props> = ({ user }: Props) => {
 
 export default profile;
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({ req, res }: any) {
   const { user } = await supabase.auth.api.getUserByCookie(req);
 
   if (!user) {
